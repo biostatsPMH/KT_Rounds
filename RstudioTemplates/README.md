@@ -1,0 +1,53 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# RStudio Templates
+
+A private package to store useful Rmarkdown templates
+
+## Customisation
+
+This package does not have any R code. It just contains markdown
+templates.
+
+The package starts with two (very similar!) templates:
+
+- qmd_report
+- Rmd_report
+
+To customise these templates change the **skeleton.Rmd** files.
+
+These are found in:
+
+inst \> rmarkdown \> templates \> **YOUR TEMPLATE NAME** \> skeleton \>
+skeleton.Rmd
+
+## Adding new templates
+
+You can create additional templates by copying an existing templat and
+changing the template.yaml file and the skeleton.Rmd file in the
+skeleton folder
+
+## Installation
+
+This is not a traditional R package, this is a personalised package.
+
+Before you install the package you need to customise the skeleton.Rmd
+files.
+
+To use your personal template you need to install it using the Build tab
+within RStudio.
+
+Build \> Install Package
+
+## Use
+
+To use your new template use:
+
+File \> New File \> R Markdown \> From Template \> **YOUR TEMPLATE
+NAME**
+
+## Other Info
+
+The name of the package is *RstudioTemplates*. This can be changed by
+modifying the DESCRIPTION file

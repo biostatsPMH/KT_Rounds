@@ -1,0 +1,83 @@
+---
+# This is called the document YAML
+# Look here for more info: https://bookdown.org/yihui/rmarkdown/word-document.html
+title: "Report Title"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::word_document2:
+    toc: yes
+    number_sections: FALSE
+    fig-width: 6
+    fig-height: 4
+# You can add in a word template - this path will be interpreted relative to the Rmd report file
+#    reference_docx: 'wordTemplate.docx'
+# Also, bib and csl files can be referenced
+# bibliography:
+#   - bibfile.bib
+# csl: Vancouver.csl
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning = FALSE,message = FALSE,comment = '',dpi=300)
+
+# # You made need this to get special characters to work for PDF reports
+# knitr::opts_chunk$set(echo = FALSE,warning = FALSE,message = FALSE,comment = '',dpi=300,dev="cairo_pdf")
+library(tidyverse)
+library(reportRmd)
+
+# Custom ggplot adjustments can be made here
+theme_pmh <- function(base_size=10){
+  theme_bw(base_size=base_size)  %+replace% 
+    theme(legend.position = 'bottom')
+}
+theme_set(theme_pmh(base_size=10))
+
+# Set the ggplot palette
+options(list(ggplot2.discrete.fill = function() reportRmd:::scale_colour_reportRx(),
+             ggplot2.discrete.colour = function() reportRmd:::scale_colour_reportRx()))
+
+R_version <- paste(sessionInfo()[1]$R.version$major,sessionInfo()[1]$R.version$minor,sep=".")
+```
+
+
+# Data Notes
+
+<!-- 
+# Checklist
+
+- Duplicate entries
+- Date Consistencies
+Assessments after DOB and prior to death date, dates within the range of the study.
+
+- Range Checks
+Check max/min values 
+
+- Missing Data
+Report on missingness in the database
+
+Identify variables that are normally and non-normally distributed and record these for future note.
+-->
+
+# Statistical Methods
+
+All statistical analyses were conducted using the R statistical programming language version `r R_version`
+
+# Results
+
+
+# References
+
+<div id="refs"></div>
+
+
+<!-- CHILD DOCUMENTS
+These can be useful for really long reports
+You can separate your code into pieces
+-->
+```{r chunk-insert, child='child.Rmd',eval=F}
+# This will be replaced by the content of the child.Rmd document
+```
+

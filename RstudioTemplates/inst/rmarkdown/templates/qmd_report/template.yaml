@@ -1,0 +1,4 @@
+name: qmd_report
+description: >
+  The default quarto template for biostatistics reports for PMH
+create_dir: FALSE

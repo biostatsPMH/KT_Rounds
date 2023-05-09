@@ -1,0 +1,4 @@
+name: Rmd_report
+description: >
+  Personalised template for Rmd reports for PMH
+create_dir: FALSE
